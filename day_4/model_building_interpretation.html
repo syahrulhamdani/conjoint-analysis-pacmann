@@ -1,0 +1,1879 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Model Building, Results, and Interpretation &#8212; Conjoint Analysis for Retail Business</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_4/model_building_interpretation';</script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Daftar Pustaka" href="../references.html" />
+    <link rel="prev" title="Eksplorasi Data Konjoin" href="../day_3/conjoint_data_exploration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building Conjoint Analysis for Retail Business
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day_1/intro.html">Pengenalan Conjoint Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day_2/designing_conjoint_survey.html">Designing a Conjoint Survey</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day_3/conjoint_data_exploration.html">Eksplorasi Data Konjoin</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 4</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Model Building, Results, and Interpretation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referensi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">Daftar Pustaka</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/syahrulhamdani/conjoint-analysis-pacmann" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/syahrulhamdani/conjoint-analysis-pacmann/issues/new?title=Issue%20on%20page%20%2Fday_4/model_building_interpretation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/day_4/model_building_interpretation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Model Building, Results, and Interpretation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-under-the-hood">Model - Under The Hood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dengan-python">Modeling dengan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-parameter">Interpretasi Parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#willingness-to-pay">Willingness to Pay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partworth-utility">Partworth Utility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-shares">Predicting Shares</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="model-building-results-and-interpretation">
+<h1>Model Building, Results, and Interpretation<a class="headerlink" href="#model-building-results-and-interpretation" title="Permalink to this heading">#</a></h1>
+<p>Selamat datang di hari keempat pada seri webinar <em>Conjoint Analysis for Retail Business</em>.</p>
+<p>Sebagai ikhtisar, hari ini kita akan membahas beberapa topik seputar berikut ini:</p>
+<ul class="simple">
+<li><p>model untuk <em>conjoint analysis</em></p></li>
+<li><p>part-worth utilities</p></li>
+<li><p>willingness-to-pay</p></li>
+<li><p>shares prediction</p></li>
+</ul>
+<section id="model-under-the-hood">
+<h2>Model - Under The Hood<a class="headerlink" href="#model-under-the-hood" title="Permalink to this heading">#</a></h2>
+<div class="admonition-konteks admonition">
+<p class="admonition-title">Konteks</p>
+<p>Pembahasan ini menggunakan pemrograman Python dan pustaka-pustakanya.</p>
+</div>
+<p>Mari kita coba lihat sampel data sportscar berikut ini.</p>
+<figure class="align-default" id="sample-sportscar-model">
+<img alt="../_images/sample-sportscar-model.png" src="../_images/sample-sportscar-model.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Sampel data sportscar dengan 3 alternatif untuk responden 1.</span><a class="headerlink" href="#sample-sportscar-model" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Tujuan dari analisis konjoin adalah untuk mengetahui kontribusi dari masing-masing atribut, yang tersedia dengan berbagai level di masing-masing alternatif di setiap set pertanyaan.</p>
+<p>Misal kita buat sebuah fungsi untuk setiap masing-masing alternatif tersebut.</p>
+<div class="math notranslate nohighlight" id="equation-utility-alternative">
+<span class="eqno">(1)<a class="headerlink" href="#equation-utility-alternative" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}
+v_1 = alpha \cdot 4 + beta \cdot 100 \\
+v_2 = alpha \cdot 5 + beta \cdot 150 \\
+v_3 = alpha \cdot 2 + beta \cdot 175 \\
+\end{align}\end{split}\]</div>
+<p>Dari <a class="reference internal" href="#equation-utility-alternative">(1)</a>, karena kita akan melakukan “estimasi” terhadap utilitas masing-masing alternatif (dan pada akhirnya setiap atribut), kita sediakan sebuah “error” untuk masing-masing fungsi, sehingga diperoleh</p>
+<div class="math notranslate nohighlight" id="equation-utility-functions">
+<span class="eqno">(2)<a class="headerlink" href="#equation-utility-functions" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}
+u_1 = v_1 + error \\
+u_2 = v_2 + error \\
+u_3 = v_3 + error \\
+\end{align}\end{split}\]</div>
+<p>Persamaan di atas disebut dengan <strong>fungsi utilitas</strong>.</p>
+<p>Ingat bahwa kita <strong>tidak bisa mengetahui dengan pasti</strong> nilai utilitas tersebut. Meski begitu, kita <strong>berasumsi</strong> bahwa <strong>responden akan memilih alternatif dengan nilai utilitas paling besar</strong>.</p>
+<div class="math notranslate nohighlight" id="equation-choice-max">
+<span class="eqno">(3)<a class="headerlink" href="#equation-choice-max" title="Permalink to this equation">#</a></span>\[choice = max([u_1, u_2, u_3])\]</div>
+<p>Sehingga, persoalan kita sekarang adalah menentukan probabilitas responden memilih masing-masing dari alternatif tersebut. Untuk alasan penyederhanaan, probabilitas tersebut dapat dikalkulasi dengan persamaan berikut, untuk masing-masing alternatif.</p>
+<div class="math notranslate nohighlight" id="equation-prob">
+<span class="eqno">(4)<a class="headerlink" href="#equation-prob" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{align}
+p_1 = \frac{exp(v_1)}{exp(v_1) + exp(v_2) + exp(v_3)} \\
+p_2 = \frac{exp(v_2)}{exp(v_1) + exp(v_2) + exp(v_3)} \\
+p_3 = \frac{exp(v_3)}{exp(v_1) + exp(v_2) + exp(v_3)} \\
+\end{align}\end{split}\]</div>
+<p>Dari <a class="reference internal" href="#equation-prob">(4)</a>, kita bisa melihat bahwa probabilitas responden untuk memilih masing-masing alternatif juga <strong>bergantung</strong> dari utilitas dari alternatif yang lain. Hal ini tentu masuk akal, sebagai contoh mungkin kita akan memilih mobil dengan harga yang terbilang mahal jika alternatif yang lain lebih jelek.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">from</span> <span class="nn">patsy</span> <span class="kn">import</span> <span class="n">dmatrices</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
+<p>Kali ini, kita akan menggunakan data sportscar <em>long format</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Silakan mengunduh data melalui tautan berikut: [🔗](https://drive.google.com/drive/folders/1rfwS32TI0GnChKLkJamBmzwDDvwbEa-I?usp=sharing</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sportscar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/sportscar_choice/sportscar_choice_long.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sportscar</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6000 entries, 0 to 5999
+Data columns (total 9 columns):
+ #   Column   Non-Null Count  Dtype 
+---  ------   --------------  ----- 
+ 0   resp_id  6000 non-null   int64 
+ 1   ques     6000 non-null   int64 
+ 2   alt      6000 non-null   int64 
+ 3   segment  6000 non-null   object
+ 4   seat     6000 non-null   int64 
+ 5   trans    6000 non-null   object
+ 6   convert  6000 non-null   object
+ 7   price    6000 non-null   int64 
+ 8   choice   6000 non-null   int64 
+dtypes: int64(6), object(3)
+memory usage: 422.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sportscar</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>alt</th>
+      <th>segment</th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+      <th>choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1483</th>
+      <td>50</td>
+      <td>5</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2185</th>
+      <td>73</td>
+      <td>9</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2520</th>
+      <td>85</td>
+      <td>1</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3721</th>
+      <td>125</td>
+      <td>1</td>
+      <td>2</td>
+      <td>racer</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3727</th>
+      <td>125</td>
+      <td>3</td>
+      <td>2</td>
+      <td>racer</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4524</th>
+      <td>151</td>
+      <td>9</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>234</th>
+      <td>8</td>
+      <td>9</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4735</th>
+      <td>158</td>
+      <td>9</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5839</th>
+      <td>195</td>
+      <td>7</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2939</th>
+      <td>98</td>
+      <td>10</td>
+      <td>3</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generate_onehot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cat_cols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;segment&quot;</span><span class="p">,</span> <span class="s2">&quot;trans&quot;</span><span class="p">,</span> <span class="s2">&quot;convert&quot;</span><span class="p">],</span> <span class="n">encoder</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate one-hot data with OneHotEncoder for several columns</span>
+<span class="sd">    and the compile them with the rest&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">encoder</span><span class="p">:</span>
+        <span class="n">encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">onehot_data</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">onehot_data</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span>
+    <span class="n">onehot_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">onehot_data</span><span class="p">,</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">encoder</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data</span><span class="p">,</span> <span class="n">onehot_data</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cat_cols</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">encoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar</span><span class="p">,</span> <span class="n">encoder</span> <span class="o">=</span> <span class="n">generate_onehot</span><span class="p">(</span><span class="n">df_sportscar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>alt</th>
+      <th>seat</th>
+      <th>price</th>
+      <th>choice</th>
+      <th>segment_basic</th>
+      <th>segment_fun</th>
+      <th>segment_racer</th>
+      <th>trans_auto</th>
+      <th>trans_manual</th>
+      <th>convert_no</th>
+      <th>convert_yes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>35</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>40</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>30</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>35</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>30</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5995</th>
+      <td>200</td>
+      <td>9</td>
+      <td>2</td>
+      <td>2</td>
+      <td>35</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5996</th>
+      <td>200</td>
+      <td>9</td>
+      <td>3</td>
+      <td>4</td>
+      <td>30</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5997</th>
+      <td>200</td>
+      <td>10</td>
+      <td>1</td>
+      <td>4</td>
+      <td>40</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5998</th>
+      <td>200</td>
+      <td>10</td>
+      <td>2</td>
+      <td>4</td>
+      <td>30</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5999</th>
+      <td>200</td>
+      <td>10</td>
+      <td>3</td>
+      <td>4</td>
+      <td>40</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 13 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sportscar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>alt</th>
+      <th>segment</th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+      <th>choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5995</th>
+      <td>200</td>
+      <td>9</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5996</th>
+      <td>200</td>
+      <td>9</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5997</th>
+      <td>200</td>
+      <td>10</td>
+      <td>1</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5998</th>
+      <td>200</td>
+      <td>10</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5999</th>
+      <td>200</td>
+      <td>10</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 9 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="modeling-dengan-python">
+<h2>Modeling dengan Python<a class="headerlink" href="#modeling-dengan-python" title="Permalink to this heading">#</a></h2>
+<p>Tergantung bagaimana bentuk pilihan yang diberikan oleh responden, model yang kita gunakan akan berbeda.</p>
+<table class="table table-center" id="response-to-model">
+<thead>
+<tr class="row-odd"><th class="head"><p>type of response</p></th>
+<th class="head"><p>model</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>rating-based</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OLS</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>ranking-based</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OLS</span></code> / <code class="docutils literal notranslate"><span class="pre">MNL</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>choice-based</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MNL</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mnlogit</span><span class="p">(</span><span class="s2">&quot;choice ~ trans + convert + seat + price&quot;</span><span class="p">,</span> <span class="n">df_sportscar</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.559275
+         Iterations 6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Apa yang dilakukan dengan kode di atas?</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">choice</span> <span class="pre">~</span> <span class="pre">trans</span> <span class="pre">+</span> <span class="pre">convert</span> <span class="pre">+</span> <span class="pre">seat</span> <span class="pre">+</span> <span class="pre">price</span></code> merupakan persamaan yang menjadi basis dari model <strong>multinomial logit</strong> untuk menentukan masing-masing parameter setiap atribut</p></li>
+<li><p>karena atribut <code class="docutils literal notranslate"><span class="pre">trans</span></code>, dan juga <code class="docutils literal notranslate"><span class="pre">convert</span></code> adalah atribut kategoris, secara implisit model akan mengubahnya menjadi matriks <em>one-hot</em> seperti berikut ini.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">dmatrices</span><span class="p">(</span><span class="s2">&quot;choice ~ trans + convert + seat + price&quot;</span><span class="p">,</span> <span class="n">df_sportscar</span><span class="p">,</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intercept</th>
+      <th>trans[T.manual]</th>
+      <th>convert[T.yes]</th>
+      <th>seat</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5995</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <th>5996</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>5997</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>40.0</td>
+    </tr>
+    <tr>
+      <th>5998</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>5999</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>40.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>Hasil dari pemodelan di atas adalah sebagai berikut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                          MNLogit Regression Results                          
+==============================================================================
+Dep. Variable:                 choice   No. Observations:                 6000
+Model:                        MNLogit   Df Residuals:                     5995
+Method:                           MLE   Df Model:                            4
+Date:                Thu, 27 Jul 2023   Pseudo R-squ.:                  0.1213
+Time:                        21:26:45   Log-Likelihood:                -3355.6
+converged:                       True   LL-Null:                       -3819.1
+Covariance Type:            nonrobust   LLR p-value:                2.507e-199
+===================================================================================
+       choice=1       coef    std err          z      P&gt;|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+Intercept           5.2024      0.281     18.542      0.000       4.652       5.752
+trans[T.manual]    -1.1155      0.061    -18.356      0.000      -1.235      -0.996
+convert[T.yes]      0.1973      0.059      3.320      0.001       0.081       0.314
+seat                0.1287      0.024      5.356      0.000       0.082       0.176
+price              -0.1726      0.008    -22.521      0.000      -0.188      -0.158
+===================================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<section id="interpretasi-parameter">
+<h3>Interpretasi Parameter<a class="headerlink" href="#interpretasi-parameter" title="Permalink to this heading">#</a></h3>
+<p>Untuk alasan kesederhanaan dan penjelasan, mari kita buat model sederhana dengan hanya memperhitungkan atribut <code class="docutils literal notranslate"><span class="pre">seat</span></code> dan <code class="docutils literal notranslate"><span class="pre">price</span></code> saja.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simple_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mnlogit</span><span class="p">(</span><span class="s2">&quot;choice ~ seat + price&quot;</span><span class="p">,</span> <span class="n">df_sportscar</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">simple_model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully.
+         Current function value: 0.589763
+         Iterations 5
+                          MNLogit Regression Results                          
+==============================================================================
+Dep. Variable:                 choice   No. Observations:                 6000
+Model:                        MNLogit   Df Residuals:                     5997
+Method:                           MLE   Df Model:                            2
+Date:                Thu, 27 Jul 2023   Pseudo R-squ.:                 0.07345
+Time:                        21:26:45   Log-Likelihood:                -3538.6
+converged:                       True   LL-Null:                       -3819.1
+Covariance Type:            nonrobust   LLR p-value:                1.503e-122
+==============================================================================
+  choice=1       coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      4.4603      0.264     16.871      0.000       3.942       4.979
+seat           0.1241      0.023      5.332      0.000       0.079       0.170
+price         -0.1625      0.007    -22.073      0.000      -0.177      -0.148
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dari kolom <code class="docutils literal notranslate"><span class="pre">coef</span></code> di atas, untuk kita menginterpretasikan nilai ini, kita gunakan persamaan <a class="reference internal" href="#equation-utility-alternative">(1)</a>.</p>
+<p>Secara umum, koefisien dari masing-masing atribut tersebut membentuk persamaan:</p>
+<div class="math notranslate nohighlight" id="simple-model-interpretation">
+<span id="equation-simple-model-interpretation"></span><span class="eqno">(5)<a class="headerlink" href="#simple-model-interpretation" title="Permalink to this equation">#</a></span>\[choice = 0.1241 \cdot seat + -0.1625 \cdot price\]</div>
+<p>Variabel <strong>choice</strong> yang dimaksud merujuk pada setiap alternatif yang disajikan. Dengan kata lain, untuk menghitung nilai $v_1$ pada <a class="reference internal" href="#equation-utility-alternative">(1)</a>, kita bisa memasukkan nilai <code class="docutils literal notranslate"><span class="pre">seat</span></code> dan <code class="docutils literal notranslate"><span class="pre">price</span></code> pada alternatif $v_1$ tersebut.</p>
+<p>Tapi, apa maksud dari nilai-nilai tersebut?</p>
+<p>Berdasarkan nilai tersebut, kita bisa membuat interpretasi bahwa:</p>
+<ul class="simple">
+<li><p>nilai positif pada <code class="docutils literal notranslate"><span class="pre">seat</span></code> berarti responden memiliki preferensi lebih ke angka yang besar, alias semakin banyak mobil dapat menampung penumpang, semakin disukai</p></li>
+<li><p>sebaliknya, nilai negatif pada <code class="docutils literal notranslate"><span class="pre">price</span></code> berarti responden memiliki preferensi lebih ke mobil dengan harga yang lebih murah</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Pada prinsipnya, nilai koefisien yang <strong>lebih dari 1</strong> atau <strong>kurang dari -1</strong> mengindikasikan bahwa atribut tersebut memiliki pengaruh yang “signifikan” terhadap preferensi responden. Sebaliknya, semkain dekat nilai koefisien dengan 0, semakin lemah juga tingkat pengaruh atribut terhadap preferensi responden.</p>
+</div>
+<p>Lalu, bagaimana dengan atribut kategoris seperti <code class="docutils literal notranslate"><span class="pre">convert</span></code> atau <code class="docutils literal notranslate"><span class="pre">trans</span></code>? Untuk itu, mari kita lihat pada model sebelumnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>MNLogit Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>        <td>choice</td>      <th>  No. Observations:  </th>   <td>  6000</td>  
+</tr>
+<tr>
+  <th>Model:</th>                <td>MNLogit</td>     <th>  Df Residuals:      </th>   <td>  5995</td>  
+</tr>
+<tr>
+  <th>Method:</th>                 <td>MLE</td>       <th>  Df Model:          </th>   <td>     4</td>  
+</tr>
+<tr>
+  <th>Date:</th>            <td>Thu, 27 Jul 2023</td> <th>  Pseudo R-squ.:     </th>   <td>0.1213</td>  
+</tr>
+<tr>
+  <th>Time:</th>                <td>21:26:45</td>     <th>  Log-Likelihood:    </th>  <td> -3355.6</td> 
+</tr>
+<tr>
+  <th>converged:</th>             <td>True</td>       <th>  LL-Null:           </th>  <td> -3819.1</td> 
+</tr>
+<tr>
+  <th>Covariance Type:</th>     <td>nonrobust</td>    <th>  LLR p-value:       </th> <td>2.507e-199</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <th>choice=1</th>        <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>       <td>    5.2024</td> <td>    0.281</td> <td>   18.542</td> <td> 0.000</td> <td>    4.652</td> <td>    5.752</td>
+</tr>
+<tr>
+  <th>trans[T.manual]</th> <td>   -1.1155</td> <td>    0.061</td> <td>  -18.356</td> <td> 0.000</td> <td>   -1.235</td> <td>   -0.996</td>
+</tr>
+<tr>
+  <th>convert[T.yes]</th>  <td>    0.1973</td> <td>    0.059</td> <td>    3.320</td> <td> 0.001</td> <td>    0.081</td> <td>    0.314</td>
+</tr>
+<tr>
+  <th>seat</th>            <td>    0.1287</td> <td>    0.024</td> <td>    5.356</td> <td> 0.000</td> <td>    0.082</td> <td>    0.176</td>
+</tr>
+<tr>
+  <th>price</th>           <td>   -0.1726</td> <td>    0.008</td> <td>  -22.521</td> <td> 0.000</td> <td>   -0.188</td> <td>   -0.158</td>
+</tr>
+</table></div></div>
+</div>
+<p>Sebagai <em>rule of thumb</em>, untuk atribut yang tidak ditampilkan pada ringkasan di atas, seperti <code class="docutils literal notranslate"><span class="pre">trans[T.auto]</span></code> dan <code class="docutils literal notranslate"><span class="pre">convert[T.no]</span></code>, menandakan bahwa atribut tersebut menjadi basis relatif dari atribut yang ditampilkan. Dengan kata lain, untuk atribut <code class="docutils literal notranslate"><span class="pre">trans</span></code> dan <code class="docutils literal notranslate"><span class="pre">convert</span></code>:</p>
+<ul class="simple">
+<li><p>responden lebih memilih mobil dengan <code class="docutils literal notranslate"><span class="pre">trans</span> <span class="pre">=</span> <span class="pre">auto</span></code> dibandingkan dengan <code class="docutils literal notranslate"><span class="pre">manual</span></code> karena nilainya yang negatif</p></li>
+<li><p>responden lebih memilih mobil dengan <code class="docutils literal notranslate"><span class="pre">convert</span> <span class="pre">=</span> <span class="pre">yes</span></code> dibandingkan dengan <code class="docutils literal notranslate"><span class="pre">no</span></code></p></li>
+</ul>
+<p>Selain itu, untuk atribut <code class="docutils literal notranslate"><span class="pre">seat</span></code> dan <code class="docutils literal notranslate"><span class="pre">price</span></code>:</p>
+<ul class="simple">
+<li><p>koefisien negatif dari <code class="docutils literal notranslate"><span class="pre">price</span></code> mengindikasikan bahwa responden lebih memilih mobil dengan harga yang lebih murah</p></li>
+<li><p>sedangkan untuk <code class="docutils literal notranslate"><span class="pre">seat</span></code>, kita bisa menganggap bahwa preferensi responden bertambah senilai koefisien untuk setiap tambahan 1 seat</p></li>
+</ul>
+</section>
+<section id="willingness-to-pay">
+<h3>Willingness to Pay<a class="headerlink" href="#willingness-to-pay" title="Permalink to this heading">#</a></h3>
+<p>Dengan menempatkan harga sebagai atribut pada alternatif produk, kita bisa menghitung <strong>willingness to pay</strong> untuk setiap atribut.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p><span id="id1">Rao [<a class="reference internal" href="../references.html#id2" title="Vithala R. Rao. Applied Conjoint Analysis. Springer, 2014.">Rao14</a>]</span> menyebutkan bahwa <strong>willingness to pay (WTP)</strong> merupakan jumlah uang yang rela dibayarkan oleh customer untuk sebuah fitur/atribut tertentu.</p>
+</div>
+<p>Untuk menghitung WTP, kita gunakan persamaan berikut.</p>
+<div class="math notranslate nohighlight" id="id2">
+<span id="equation-willingness-to-pay"></span><span class="eqno">(6)<a class="headerlink" href="#id2" title="Permalink to this equation">#</a></span>\[WTP_i = \frac{feat_i}{-feat_{price}}\]</div>
+<p>Sehingga, untuk model kita di atas, kita bisa menghitung WTP dengan membagi semua negatif dari koefisien atribut harga.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Intercept</th>
+      <td>5.202387</td>
+    </tr>
+    <tr>
+      <th>trans[T.manual]</th>
+      <td>-1.115504</td>
+    </tr>
+    <tr>
+      <th>convert[T.yes]</th>
+      <td>0.197295</td>
+    </tr>
+    <tr>
+      <th>seat</th>
+      <td>0.128717</td>
+    </tr>
+    <tr>
+      <th>price</th>
+      <td>-0.172622</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">params</span> <span class="o">/</span> <span class="o">-</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Intercept</th>
+      <td>30.137437</td>
+    </tr>
+    <tr>
+      <th>trans[T.manual]</th>
+      <td>-6.462116</td>
+    </tr>
+    <tr>
+      <th>convert[T.yes]</th>
+      <td>1.142930</td>
+    </tr>
+    <tr>
+      <th>seat</th>
+      <td>0.745656</td>
+    </tr>
+    <tr>
+      <th>price</th>
+      <td>-1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Dengan mengasumsikan bahwa satuan harga yang digunakan adalah ribuan dolar, WTP untuk masing-masing atribut adalah (selain <code class="docutils literal notranslate"><span class="pre">price</span></code> dan <code class="docutils literal notranslate"><span class="pre">Intercept</span></code>):</p>
+<ul class="simple">
+<li><p>untuk <code class="docutils literal notranslate"><span class="pre">trans[T.manual]</span></code>, responden memiliki preferensi setidaknya untuk memilih mobil dengan transmisi manual, harus ada potongan harga sebesar $6,462 dari mobil dengan transmisi auto</p></li>
+<li><p>untuk <code class="docutils literal notranslate"><span class="pre">convert[T.yes]</span></code>, responden meiliki preferensi bahwa nilai yang harus mereka bayar untuk mendapatkan mobil dengan atap yang dapat dibuka bertambah sebesar $1,143</p></li>
+<li><p>untuk <code class="docutils literal notranslate"><span class="pre">seat</span></code>, responden mengindikasikan bahwa setiap tambahan 1 seat pada mobil, wajar untuk menambah biaya sebesar $745</p></li>
+</ul>
+</section>
+<section id="partworth-utility">
+<h3>Partworth Utility<a class="headerlink" href="#partworth-utility" title="Permalink to this heading">#</a></h3>
+<p><strong>Partworth Utility</strong> adalah sebuah angka yang mengukur seberapa besar masing-masing atribut berpengaruh terhadap keputusan responden untuk memilih alternatif (<span id="id3">Rao [<a class="reference internal" href="../references.html#id2" title="Vithala R. Rao. Applied Conjoint Analysis. Springer, 2014.">Rao14</a>]</span>.</p>
+<p>Kita bisa menggunakan nilai koefisien pada masing-masing atribut sebagai <strong>partworth utility by level</strong> atau nilai utilitas setiap level di atribut. Untuk menghitung <strong>partworth utility by attribute</strong>, kita perlu melakukan beberapa kalkulasi berikut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conjoint_attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;seat&quot;</span><span class="p">,</span> <span class="s2">&quot;trans&quot;</span><span class="p">,</span> <span class="s2">&quot;convert&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">levels</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">partworth</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">partworth_range</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">atr</span> <span class="ow">in</span> <span class="n">conjoint_attributes</span><span class="p">:</span>
+    <span class="n">num_levels</span> <span class="o">=</span> <span class="n">df_sportscar</span><span class="p">[</span><span class="n">atr</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="n">levels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_sportscar</span><span class="p">[</span><span class="n">atr</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+    <span class="n">new_part_worth</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">atr</span><span class="p">)]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">new_part_worth</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">new_part_worth</span><span class="p">)])</span>
+    <span class="n">partworth_range</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">new_part_worth</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">new_part_worth</span><span class="p">))</span>
+    <span class="n">partworth</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_part_worth</span><span class="p">)</span>
+
+
+<span class="n">partworth_attribute</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">partworth_range</span><span class="p">:</span>
+    <span class="n">partworth_attribute</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">part</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">partworth_range</span><span class="p">)),</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Part-worth Utility by Attribute:&quot;</span><span class="p">,</span> <span class="n">partworth_attribute</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Part-worth Utility by Attribute: [7.97, 69.11, 12.22, 10.69]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">conjoint_attributes</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">partworth_attribute</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/30f913b4d3dcfe1f793c43b0e46e0102d9fa0f169b18ab64544148810487cc03.png" src="../_images/30f913b4d3dcfe1f793c43b0e46e0102d9fa0f169b18ab64544148810487cc03.png" />
+</div>
+</div>
+<p>Secara umum, berikut adalah langkah-langkah untuk menghitung parworth utlity untuk masing-masing atribut:</p>
+<ol class="arabic simple">
+<li><p>Hitung <strong><em>range</em></strong> preferensi dari semua parworth utility level dalam masing-masing atribut, yaitu selisih antara <strong>nilai maksimum</strong> dan <strong>nilai minimum</strong> dari setiap level di suatu atribut.</p></li>
+<li><p>Hitung <strong><em>importance ratio</em></strong> dari setiap atribut dengan cara membagi <strong><em>range</em></strong> preferensi suatu atribut dengan <strong>jumlah <em>range</em></strong> keseluruhan atribut</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Apa yang bisa kamu simpulkan dari visualisasi part-worth di atas?</p>
+</div>
+</section>
+<section id="predicting-shares">
+<h3>Predicting Shares<a class="headerlink" href="#predicting-shares" title="Permalink to this heading">#</a></h3>
+<p>Untuk menyampaikan hasil analisis ke <em>business user</em> yang mungkin tidak punya latar belakang teknis akan sedikit rumit. Oleh karena itu, kita bisa menggunakan alternatif prediksi tentang apa yang akan orang-orang pilih jika kita hadapkan dengan beberapa alternatif produk.</p>
+<p>Misalkan kita ingin membandingkan produk yang mobil yang akan kita luncurkan jika dibandingkan dengan produk kompetitor. Berikut ini adalah fitur-fiturnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_market</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;seat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="s2">&quot;trans&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;manual&quot;</span><span class="p">,</span> <span class="s2">&quot;auto&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;convert&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">new_market</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Misalkan saja baris pertama adalah <strong>produk yang akan kita luncurkan</strong> dan baris kedua adalah <strong>produk yang diluncurkan kompetitor</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shares</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_market</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">shares</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Our Sportscar&quot;</span><span class="p">,</span> <span class="s2">&quot;Competitor 1&quot;</span><span class="p">]</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">shares</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">shares</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Competitor 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Our Sportscar&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6657dc254cb7fed8de37c32a34e6fb1bb618ff6cda0b10d9c16111924b3a8f7d.png" src="../_images/6657dc254cb7fed8de37c32a34e6fb1bb618ff6cda0b10d9c16111924b3a8f7d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_market</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;seat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s2">&quot;trans&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="s2">&quot;auto&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;convert&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">new_market</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Our Sportscar&quot;</span><span class="p">,</span> <span class="s2">&quot;Competitor&quot;</span><span class="p">]</span>
+<span class="n">new_market</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Our Sportscar</th>
+      <td>3</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>Competitor</th>
+      <td>3</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shares</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">new_market</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">shares</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our Sportscar    0.045539
+Competitor       0.601058
+Name: 1, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">shares</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">shares</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d20d137a32d2afc9b921aa5e2b421aab500d88afef70d8174bd8830bdee8635b.png" src="../_images/d20d137a32d2afc9b921aa5e2b421aab500d88afef70d8174bd8830bdee8635b.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./day_4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../day_3/conjoint_data_exploration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Eksplorasi Data Konjoin</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Daftar Pustaka</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-under-the-hood">Model - Under The Hood</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dengan-python">Modeling dengan Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-parameter">Interpretasi Parameter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#willingness-to-pay">Willingness to Pay</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partworth-utility">Partworth Utility</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predicting-shares">Predicting Shares</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syahrul B Hamdani
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

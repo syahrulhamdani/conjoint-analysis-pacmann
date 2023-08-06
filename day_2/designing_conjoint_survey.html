@@ -1,0 +1,2577 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Designing a Conjoint Survey &#8212; Conjoint Analysis for Retail Business</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_2/designing_conjoint_survey';</script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Eksplorasi Data Konjoin" href="../day_3/conjoint_data_exploration.html" />
+    <link rel="prev" title="Pengenalan Conjoint Analysis" href="../day_1/intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building Conjoint Analysis for Retail Business
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day_1/intro.html">Pengenalan Conjoint Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 2</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Designing a Conjoint Survey</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 3</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day_3/conjoint_data_exploration.html">Eksplorasi Data Konjoin</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Day 4</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day_4/model_building_interpretation.html">Model Building, Results, and Interpretation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Referensi</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">Daftar Pustaka</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/syahrulhamdani/conjoint-analysis-pacmann" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/syahrulhamdani/conjoint-analysis-pacmann/issues/new?title=Issue%20on%20page%20%2Fday_2/designing_conjoint_survey.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/day_2/designing_conjoint_survey.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Designing a Conjoint Survey</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studi-konjoin">Studi Konjoin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-atribut-dan-level">Identifikasi Atribut dan Level</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-alternatif-survei-dengan-python">Membuat Alternatif Survei dengan Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjoint-data-collection">Conjoint Data Collection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-profile">Full Profile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off-matrix">Trade-Off Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-conjoint-data">Contoh <em>Conjoint Data</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-dalam-melakukan-studi-konjoin">Tips dalam Melakukan Studi Konjoin</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="designing-a-conjoint-survey">
+<h1>Designing a Conjoint Survey<a class="headerlink" href="#designing-a-conjoint-survey" title="Permalink to this heading">#</a></h1>
+<p>Selamat datang di hari kedua pada seri webinar <em>Conjoint Analysis for Retail Business</em>.</p>
+<p>Sebagai ikhtisar, kita akan membahas beberapa topik seputar:</p>
+<ul class="simple">
+<li><p>implementasi analisis konjoin</p></li>
+<li><p>identifikasi atribut dan level</p></li>
+<li><p>tips melakukan analisis konjoin</p></li>
+</ul>
+<section id="studi-konjoin">
+<h2>Studi Konjoin<a class="headerlink" href="#studi-konjoin" title="Permalink to this heading">#</a></h2>
+<p>Dari beberapap jenis studi konjoin, <strong>rating-based</strong> dan <strong>choice-based</strong> adalah dua pendekatan yang paling sering digunakan. Tergantung pendekatan mana yang dipakai, secara umum, diagram berikut mengilustrasikan langkah-langkah dalam sebuah studi konjoin.</p>
+<figure class="align-default" id="steps-in-conjoint-study">
+<img alt="../_images/steps-in-conjoint-study.png" src="../_images/steps-in-conjoint-study.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Langkah-langkah dalam studi konjoin (<span id="id1">Rao [<a class="reference internal" href="../references.html#id2" title="Vithala R. Rao. Applied Conjoint Analysis. Springer, 2014.">Rao14</a>]</span>).</span><a class="headerlink" href="#steps-in-conjoint-study" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<!-- TODO: tambahkan identifikasi masalah di diagram -->
+<p>Berdasarkan diagram di atas, langkah pertama sebelum memulai sebuah studi konjoin tentu saja adalah <strong>menentukan studi konjoin</strong>. Kali ini, kita akan melakukan studi konjoin pada bidang retail, khususnya pada produk mobil.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Dalam praktiknya, setelah mendefinisikan masalah dan bagaimana hasil dari studi akan digunakan, masalah berikutnya <strong>tidak hanya menentukan atribut-atribut dari sebuah produk</strong>, tapi juga menentukan **bagaimana produk dengan atribut tersebut dapat dijual atau bahkan memotong penjualan produk lama.</p>
+</div>
+<section id="identifikasi-atribut-dan-level">
+<h3>Identifikasi Atribut dan Level<a class="headerlink" href="#identifikasi-atribut-dan-level" title="Permalink to this heading">#</a></h3>
+<p>Seperti yang disebutkan pada materi hari pertama, pendekatan studi konjoin bertujuan untuk menemukan “fungsi preferensi” dari sebuah produk berdasarkan atributnya. Oleh karena itu, identifikasi atribut menjadi <strong>langkah yang paling penting</strong> dalam sebuah studi konjoin.</p>
+<p>Atribut dari sebuah produk dapat dibagi menjadi 2 jenis:</p>
+<ul>
+<li><p>kategoris</p>
+<p>Contoh atribut kategoris seperti nama brand, jenis transmisi pada mobil, dan sejenisnya. Sehingga, level dari atribut ini juga berbentuk kategoris, tapi tidak harus memiliki urutan yang jelas.</p>
+</li>
+<li><p>kuantitatif</p>
+<p>Berbeda dengan atribut kategoris, atribut kuantitatif biasanya berupa sebuah interval atau rasio.</p>
+</li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Kategoris vs Kuantitatif<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Dari gambar berikut ini, coba tentukan mana yang bisa menjadi atribut kategoris dan mana yang kuantitatif?</p>
+<img alt="../_images/product-attributes-iphone-attention.png" class="align-center" src="../_images/product-attributes-iphone-attention.png" />
+</div>
+</details><p>Pada dasarnya, pemilihan atribut dan level sebenarnya lebih ke urusan kreativitas dibanding sains (<span id="id2">Rao [<a class="reference internal" href="../references.html#id2" title="Vithala R. Rao. Applied Conjoint Analysis. Springer, 2014.">Rao14</a>]</span>). Lalu, darimana kita bisa menentukan atribut-atribut tersebut?</p>
+<ul class="simple">
+<li><p>informasi yang dikumpulkan dari survei konsumen yang pernah dilakukan sebelumnya</p></li>
+<li><p>sumber eksternal seperti <a class="reference external" href="https://www.thinkwithgoogle.com/intl/en-apac/consumer-insights/">Consumer Insights dari Google</a> atau sejenisnya, yang relevan dengan produk kita</p></li>
+<li><p>sesi workshop atau brainstorming internal perusahaan</p></li>
+<li><p>melakukan analisis terhadap <em>revealed preference data</em></p></li>
+</ul>
+</section>
+<section id="membuat-alternatif-survei-dengan-python">
+<h3>Membuat Alternatif Survei dengan Python<a class="headerlink" href="#membuat-alternatif-survei-dengan-python" title="Permalink to this heading">#</a></h3>
+<p>Misal kita ingin mendesain survei konjoin untuk mobil sport dengan pilihan atribut dan masing-masing level berikut:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">seat</span></code>: 2, 4, 5</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convert</span></code>: yes, no</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trans</span></code>: manual, auto</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">segment</span></code>: basic, fun, racer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: 30, 40, 50</p></li>
+</ul>
+<p>Salah satu caranya adalah dengan membuat semua kombinasi yang mungkin dari masing-masing atribut dan juga level tersebut</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">att_seat</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">att_convert</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">]</span>
+<span class="n">att_trans</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;manual&quot;</span><span class="p">,</span> <span class="s2">&quot;auto&quot;</span><span class="p">]</span>
+<span class="n">att_segment</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;basic&quot;</span><span class="p">,</span> <span class="s2">&quot;fun&quot;</span><span class="p">,</span> <span class="s2">&quot;racer&quot;</span><span class="p">]</span>
+<span class="n">att_price</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_combinations</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="n">att_seat</span><span class="p">,</span> <span class="n">att_convert</span><span class="p">,</span> <span class="n">att_trans</span><span class="p">,</span> <span class="n">att_segment</span><span class="p">,</span> <span class="n">att_price</span><span class="p">)</span>
+
+<span class="n">attributes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">combination</span> <span class="k">for</span> <span class="n">combination</span> <span class="ow">in</span> <span class="n">all_combinations</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;seat&quot;</span><span class="p">,</span> <span class="s2">&quot;convert&quot;</span><span class="p">,</span> <span class="s2">&quot;trans&quot;</span><span class="p">,</span> <span class="s2">&quot;segment&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>seat</th>
+      <th>convert</th>
+      <th>trans</th>
+      <th>segment</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>5</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>5</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>5</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>racer</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>5</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>racer</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>5</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>racer</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+<p>108 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">attributes</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>seat</th>
+      <th>convert</th>
+      <th>trans</th>
+      <th>segment</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>80</th>
+      <td>5</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>racer</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>4</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>racer</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>4</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>racer</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">surveys</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">n_alternatives</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_questions</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_questions</span><span class="p">):</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">attributes</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n_alternatives</span><span class="p">)</span>
+    <span class="n">sample</span><span class="p">[</span><span class="s2">&quot;questions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">sample</span><span class="p">[</span><span class="s2">&quot;alt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_alternatives</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">surveys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+
+<span class="n">df_surveys</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">surveys</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_surveys</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>seat</th>
+      <th>convert</th>
+      <th>trans</th>
+      <th>segment</th>
+      <th>price</th>
+      <th>questions</th>
+      <th>alt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>50</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>racer</td>
+      <td>30</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>50</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>50</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>50</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>30</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>5</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>50</td>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>auto</td>
+      <td>racer</td>
+      <td>50</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>racer</td>
+      <td>40</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>30</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>30</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>4</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>racer</td>
+      <td>30</td>
+      <td>6</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>50</td>
+      <td>6</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>auto</td>
+      <td>racer</td>
+      <td>40</td>
+      <td>7</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>4</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>30</td>
+      <td>7</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>30</td>
+      <td>8</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>5</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>basic</td>
+      <td>50</td>
+      <td>8</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>30</td>
+      <td>8</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>4</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>50</td>
+      <td>9</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>5</td>
+      <td>No</td>
+      <td>auto</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>2</td>
+      <td>No</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>30</td>
+      <td>9</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>50</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>5</td>
+      <td>Yes</td>
+      <td>manual</td>
+      <td>fun</td>
+      <td>40</td>
+      <td>10</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>2</td>
+      <td>Yes</td>
+      <td>auto</td>
+      <td>basic</td>
+      <td>40</td>
+      <td>10</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Metode pembuatan profil seperti di atas disebut juga sebagai <strong>full factorial design</strong>.</p>
+<p>Metode ini kurang begitu praktis mengingat jumlah profil yang dihasilkan akan semakin membesar dengan semakin banyaknya pilihan atribut dan level masing-masing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">att_seat</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">att_convert</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">att_price</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">att_segment</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">att_trans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>108
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oleh karena itu, daripada memuat semua <strong>108</strong> profil, kita bisa menggunakan pendekatan <strong>fractional factorial design</strong>. Dengan pendekatan ini, kita bisa memiih <em>fraction</em> dari total profil yang mungkin.</p>
+<p>Misalkan dari 108 profil yang mungkin, kita bisa memilih setengahnya, yaitu 54 untuk dipilih secara “sistematis” berdasarkan beberapa faktor seperti cost, kombinasi atribut-level yang masuk akal, durasi interview, dan lainnya.</p>
+<div class="admonition-contoh-fractional-factorial-design admonition">
+<p class="admonition-title">Contoh fractional factorial design</p>
+<p>Dari 4 atribut beserta level-levelnya:</p>
+<ul class="simple">
+<li><p>price: USD 550, USD 700, USD 850</p></li>
+<li><p>face ID: with face ID, without face ID</p></li>
+<li><p>battery: 6 hours, 10 hours</p></li>
+<li><p>bonus storage: “standard”, “plus”</p></li>
+</ul>
+<p>jumlah keseluruhan profil yang mungkin dibentuk adalah $3 \times 2 \times 2 \times 2 = 24$. Tapi, kita memutuskan untuk menggunakan 12 profil (setengahnya) dengan urutan acak berikut.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">att_price</span> <span class="o">=</span> <span class="p">[</span><span class="mi">550</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">850</span><span class="p">]</span>
+<span class="n">att_faceid</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Yes&quot;</span><span class="p">,</span> <span class="s2">&quot;No&quot;</span><span class="p">]</span>
+<span class="n">att_battery_hours</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">att_storage</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;standard&quot;</span><span class="p">,</span> <span class="s2">&quot;plus&quot;</span><span class="p">]</span>
+
+<span class="n">all_combinations</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="n">att_price</span><span class="p">,</span> <span class="n">att_faceid</span><span class="p">,</span> <span class="n">att_battery_hours</span><span class="p">,</span> <span class="n">att_storage</span><span class="p">)</span>
+
+<span class="n">attributes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">combination</span> <span class="k">for</span> <span class="n">combination</span> <span class="ow">in</span> <span class="n">all_combinations</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Price (USD)&quot;</span><span class="p">,</span> <span class="s2">&quot;Face ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Battery&quot;</span><span class="p">,</span> <span class="s2">&quot;Bonus Storage&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">attributes</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Price (USD)</th>
+      <th>Face ID</th>
+      <th>Battery</th>
+      <th>Bonus Storage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>700</td>
+      <td>No</td>
+      <td>6</td>
+      <td>plus</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>850</td>
+      <td>Yes</td>
+      <td>10</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>550</td>
+      <td>Yes</td>
+      <td>10</td>
+      <td>plus</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>700</td>
+      <td>No</td>
+      <td>10</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>850</td>
+      <td>No</td>
+      <td>6</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>850</td>
+      <td>Yes</td>
+      <td>6</td>
+      <td>plus</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>700</td>
+      <td>Yes</td>
+      <td>10</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>550</td>
+      <td>No</td>
+      <td>6</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>550</td>
+      <td>Yes</td>
+      <td>10</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>850</td>
+      <td>Yes</td>
+      <td>10</td>
+      <td>plus</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>550</td>
+      <td>No</td>
+      <td>10</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>550</td>
+      <td>No</td>
+      <td>10</td>
+      <td>plus</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="conjoint-data-collection">
+<h2>Conjoint Data Collection<a class="headerlink" href="#conjoint-data-collection" title="Permalink to this heading">#</a></h2>
+<p>Kita bisa mengumpulkan data konjoin dari mana saja, tidak hanya melalui survei langsung. Jika kita sudah mempunyai <em>base user</em> dan data transaksi yang cukup banyak, kita bisa merekrontuksi data tersebut menjadi data konjoin.</p>
+<p>Misalkan, untuk membuat data konjoin dari sebuah data transaksi di sebuah supermarket dengan cara melihat <strong>apa yang pembeli beli</strong> dan <strong>apa yang tersedia</strong> saat itu.</p>
+<figure class="align-default" id="groceries-meme">
+<a class="reference internal image-reference" href="../_images/groceries-meme.jpg"><img alt="../_images/groceries-meme.jpg" src="../_images/groceries-meme.jpg" style="width: 240px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Kemarin kayaknya ada deh? (<a class="reference external" href="https://knowyourmeme.com/photos/1608093-ryan-gosling">ref</a>)</span><a class="headerlink" href="#groceries-meme" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Data yang direkontruksi dari proses tersebut disebut juga sebagai <strong><em>revealed preference data</em></strong>.</p>
+</div>
+<p>Akan tetapi, kadang kita tidak bisa menemukan yang kita cari dari data histori transaksi. Terutama, ketika kita mencoba menawarkan fitur baru di produk kita, yang tentu saja belum tersedia (apalagi dibeli).</p>
+<p>Dalam kasus ini, kita bisa membuat sebuah <strong>survei</strong> kepada calon pembeli untuk membuat <strong>“pilihan”</strong>. Data yang dihasilkan dari proses inilah yang dinamakan dengan <strong><em>conjoint data</em></strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nama lain dari data yang dihasilkan dari survei tersebut adalah <strong><em>stated preference data</em></strong>.</p>
+</div>
+<figure class="align-default" id="stated-preference-data">
+<img alt="../_images/stated-preference-data.png" src="../_images/stated-preference-data.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Contoh survei kepada konsumen untuk memilih mobil mana yang kiranya akan dipilih atau dibeli (<span id="id3">DataCamp [<a class="reference internal" href="../references.html#id4" title="DataCamp. Choice modeling for marketing in r. https://www.datacamp.com/courses/choice-modeling-for-marketing-in-r. Accessed on 18 July 2023.">Dat</a>]</span>)</span><a class="headerlink" href="#stated-preference-data" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="full-profile">
+<h3>Full Profile<a class="headerlink" href="#full-profile" title="Permalink to this heading">#</a></h3>
+<p>Seperti yang sudah disebutkan di materi hari pertama, pada <em>full-profile</em>, kita akan menggunakan semua atribut untuk ditampilkan kepada responden. Akan tetapi, jika jumlah atribut (dan level masing-masing) tidak terlalu besar, kita bisa menampilkan semua kombinasi (profil).</p>
+</section>
+<section id="trade-off-matrix">
+<h3>Trade-Off Matrix<a class="headerlink" href="#trade-off-matrix" title="Permalink to this heading">#</a></h3>
+<p>Responden akan diminta untuk menilai alternatif produk dengan kombinasi <strong>2 atribut</strong> sekaligus. Atribut-atribut tersebut akan berubah sedemikian hingga responden akan menilai semua profil dari 2 atribut tersebut. Perhatikan contoh berikut.</p>
+<figure class="align-default" id="trade-off-matrix-example">
+<img alt="../_images/trade-off-matrix-example.png" src="../_images/trade-off-matrix-example.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Contoh hasil survei menggunakan <em>trade-off matrix</em>. Responden ini cenderung memilih <code class="docutils literal notranslate"><span class="pre">Goodyear</span></code> yang bertahan hingga 50k mil dan tetap memilih brand yang sama dengan daya tahan yang lebih rendah.</span><a class="headerlink" href="#trade-off-matrix-example" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Meskipun metode ini sederhana, kita tidak tahu asumsi apa yang dibuat oleh responden untuk atribut-atribut lain yang tidak dimunculkan.</p>
+</div>
+</section>
+<section id="contoh-conjoint-data">
+<h3>Contoh <em>Conjoint Data</em><a class="headerlink" href="#contoh-conjoint-data" title="Permalink to this heading">#</a></h3>
+<p>bagaimana pun kita mengumpulkan data konjoin, dan tergantung <em>tool</em> yang kita gunakan untuk mengumpulkan data, bentuk data konjoin memiliki format <strong>memanjang</strong> ataupun <strong>melebar</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar_long</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/sportscar_choice/sportscar_choice_long.csv&quot;</span><span class="p">)</span>
+<span class="n">sportscar_wide</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/sportscar_choice/sportscar_choice_wide.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar_long</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>alt</th>
+      <th>segment</th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+      <th>choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5995</th>
+      <td>200</td>
+      <td>9</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5996</th>
+      <td>200</td>
+      <td>9</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5997</th>
+      <td>200</td>
+      <td>10</td>
+      <td>1</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5998</th>
+      <td>200</td>
+      <td>10</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5999</th>
+      <td>200</td>
+      <td>10</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar_wide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>segment</th>
+      <th>choice</th>
+      <th>seat.1</th>
+      <th>seat.2</th>
+      <th>seat.3</th>
+      <th>trans.1</th>
+      <th>trans.2</th>
+      <th>trans.3</th>
+      <th>convert.1</th>
+      <th>convert.2</th>
+      <th>convert.3</th>
+      <th>price.1</th>
+      <th>price.2</th>
+      <th>price.3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>3</td>
+      <td>2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>auto</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>35</td>
+      <td>40</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>5</td>
+      <td>2</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>manual</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>35</td>
+      <td>30</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>basic</td>
+      <td>1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>auto</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>35</td>
+      <td>30</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>4</td>
+      <td>basic</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>manual</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>30</td>
+      <td>40</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>5</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>5</td>
+      <td>5</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>manual</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>30</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>200</td>
+      <td>6</td>
+      <td>fun</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>auto</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>30</td>
+      <td>30</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>200</td>
+      <td>7</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>auto</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>30</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>200</td>
+      <td>8</td>
+      <td>fun</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>manual</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>30</td>
+      <td>40</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>200</td>
+      <td>9</td>
+      <td>fun</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>auto</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>35</td>
+      <td>35</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>200</td>
+      <td>10</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>auto</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>40</td>
+      <td>30</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+<p>2000 rows × 16 columns</p>
+</div></div></div>
+</div>
+<p>Data dengan format melebar ini biasanya kita temukan jika kita menggunakan tools seperti Google Form atau Qualtrics. Untuk itu, kita perlu merubah data dengan format melebar ini menjadi format memanjang untuk memudahkan kita dalam melakukan eksplorasi dan visualisasi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar_long</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>alt</th>
+      <th>segment</th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+      <th>choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5995</th>
+      <td>200</td>
+      <td>9</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5996</th>
+      <td>200</td>
+      <td>9</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5997</th>
+      <td>200</td>
+      <td>10</td>
+      <td>1</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5998</th>
+      <td>200</td>
+      <td>10</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5999</th>
+      <td>200</td>
+      <td>10</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar_wide</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sportscar_wide</span><span class="o">.</span><span class="n">index</span>
+<span class="n">sportscar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">wide_to_long</span><span class="p">(</span>
+    <span class="n">sportscar_wide</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">&quot;seat&quot;</span><span class="p">,</span> <span class="s2">&quot;trans&quot;</span><span class="p">,</span> <span class="s2">&quot;convert&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">],</span>
+    <span class="n">i</span><span class="o">=</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="s2">&quot;alt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s2">&quot;alt&quot;</span><span class="p">)</span>
+<span class="n">sportscar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>alt</th>
+      <th>segment</th>
+      <th>choice</th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>basic</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>basic</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>basic</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>3</td>
+      <td>fun</td>
+      <td>1</td>
+      <td>200</td>
+      <td>6</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>3</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>200</td>
+      <td>7</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>3</td>
+      <td>fun</td>
+      <td>1</td>
+      <td>200</td>
+      <td>8</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>3</td>
+      <td>fun</td>
+      <td>1</td>
+      <td>200</td>
+      <td>9</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>3</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>200</td>
+      <td>10</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;resp_id&quot;</span><span class="p">,</span> <span class="s2">&quot;ques&quot;</span><span class="p">,</span> <span class="s2">&quot;alt&quot;</span><span class="p">,</span> <span class="s2">&quot;segment&quot;</span><span class="p">,</span> <span class="s2">&quot;seat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trans&quot;</span><span class="p">,</span> <span class="s2">&quot;convert&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;choice&quot;</span>
+<span class="p">]</span>
+<span class="n">sportscar</span> <span class="o">=</span> <span class="n">sportscar</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;resp_id&quot;</span><span class="p">,</span> <span class="s2">&quot;ques&quot;</span><span class="p">,</span> <span class="s2">&quot;alt&quot;</span><span class="p">])[</span><span class="n">fields</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sportscar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>alt</th>
+      <th>segment</th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+      <th>choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>40</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5995</th>
+      <td>200</td>
+      <td>9</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5996</th>
+      <td>200</td>
+      <td>9</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5997</th>
+      <td>200</td>
+      <td>10</td>
+      <td>1</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5998</th>
+      <td>200</td>
+      <td>10</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>5999</th>
+      <td>200</td>
+      <td>10</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>40</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sportscar</span><span class="p">[</span><span class="s2">&quot;choice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">sportscar</span><span class="p">[</span><span class="s2">&quot;choice&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">sportscar</span><span class="p">[</span><span class="s2">&quot;alt&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;int&quot;</span><span class="p">)</span>
+<span class="n">sportscar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>resp_id</th>
+      <th>ques</th>
+      <th>alt</th>
+      <th>segment</th>
+      <th>seat</th>
+      <th>trans</th>
+      <th>convert</th>
+      <th>price</th>
+      <th>choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>basic</td>
+      <td>5</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>basic</td>
+      <td>2</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5995</th>
+      <td>200</td>
+      <td>9</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>2</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>35</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5996</th>
+      <td>200</td>
+      <td>9</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>30</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5997</th>
+      <td>200</td>
+      <td>10</td>
+      <td>1</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>yes</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5998</th>
+      <td>200</td>
+      <td>10</td>
+      <td>2</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>auto</td>
+      <td>no</td>
+      <td>30</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5999</th>
+      <td>200</td>
+      <td>10</td>
+      <td>3</td>
+      <td>fun</td>
+      <td>4</td>
+      <td>manual</td>
+      <td>no</td>
+      <td>40</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>6000 rows × 9 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">sportscar_long</span> <span class="o">==</span> <span class="n">sportscar</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>resp_id    6000
+ques       6000
+alt        6000
+segment    6000
+seat       6000
+trans      6000
+convert    6000
+price      6000
+choice     6000
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tips-dalam-melakukan-studi-konjoin">
+<h2>Tips dalam Melakukan Studi Konjoin<a class="headerlink" href="#tips-dalam-melakukan-studi-konjoin" title="Permalink to this heading">#</a></h2>
+<p>Perlu diingat bahwa <strong>atribut</strong> merupakan “dimensi” produk, seperti harga, warna, ukuran, merk, lokasi, dan lainnya. Kaitannya dengan atribut (<span id="id4">Rao [<a class="reference internal" href="../references.html#id2" title="Vithala R. Rao. Applied Conjoint Analysis. Springer, 2014.">Rao14</a>]</span>):</p>
+<ul class="simple">
+<li><p>Masukkan ke dalam pertanyaan survei, atribut-atribut yang menurut kamu penting bagi konsumen ketika mereka hendak membeli dan/atau atribut lainnya yang ingin kamu pastikan dampaknya. Misalkan, kamu memahami bahwa preferensi konsumen tergantung kepada harga dan ukuran produk, dan kamu ingin memastikan apakah pilihan warna juga penting, maka kamu bisa sertakan ketiga atribut tersebut, yaitu harga, ukuran, dan juga warna</p></li>
+<li><p>Usahakan <strong>jangan</strong> memasukkan <strong>lebih dari 7 atribut</strong> supaya tidak membuat konsumen semakin bingung terlihat terlalu memaksa.</p></li>
+<li><p>Secara umum, <strong>harga</strong> menjadi satu atribut yang sulit untuk tidak disertakan, jadi sertakan saja.</p></li>
+</ul>
+<p>Selain atribut, kita juga perlu memperhatikan soal <strong>level</strong>. Level merupakan opsi nilai yang mungkin dari sebuah atribut. Misalkan, atribut warna mungkin memiliki 3 level, yaitu merah, kuning, dan hijau.</p>
+<ul class="simple">
+<li><p>Pastikan bahwa setidaknya kamu memiliki <strong>minimal 2 level per atribut</strong>.</p></li>
+<li><p>Level harus <strong>detail</strong>, misalkan level dari atribut resolusi kamera sebuah handphone adalah 46 MP, 50 MP, atau 52 MP. Bukan “lebih dari 45 MP” ataupun “tidak lebih dari 50 MP”.</p></li>
+<li><p>Pastikan bahwa level setiap atribut <strong>realistis</strong> (tapi <strong>belum perlu <em>feasible</em></strong> di waktu studi dilakukan)</p></li>
+<li><p>Level-level pada satu atribut harus saling lepas satu sama lain. Misalkan untuk produk <em>snack</em> untuk atribut rasa, hindari nilai seperti “manis” dan “pedas manis”. Sebagai alternatif, kita bisa buat rasa seperti “caramel” dan “spicy”.</p></li>
+</ul>
+<p>Selain itu, untuk atribut dan level-nya:</p>
+<ul class="simple">
+<li><p>Pastikan untuk menggunakan bahasa atau istilah yang mudah dimengerti oleh konsumen.</p></li>
+<li><p>Jika kesulitan, <strong><em>a picture is worth a thousand words</em></strong>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./day_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../day_1/intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pengenalan Conjoint Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../day_3/conjoint_data_exploration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Eksplorasi Data Konjoin</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#studi-konjoin">Studi Konjoin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-atribut-dan-level">Identifikasi Atribut dan Level</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-alternatif-survei-dengan-python">Membuat Alternatif Survei dengan Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjoint-data-collection">Conjoint Data Collection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-profile">Full Profile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trade-off-matrix">Trade-Off Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-conjoint-data">Contoh <em>Conjoint Data</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-dalam-melakukan-studi-konjoin">Tips dalam Melakukan Studi Konjoin</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Syahrul B Hamdani
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
